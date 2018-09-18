@@ -2,7 +2,7 @@ def answer(population, patient_x, patient_y, strength):
 
     def is_susceptible(y, x):
         resistance = population[y][x]
-        return True if resistance <= strength else False
+        return resistance <= strength
 
     def is_in_bounds(y, x):
         try:
@@ -22,7 +22,7 @@ def answer(population, patient_x, patient_y, strength):
         population[y][x] = -1
 
     def already_infected(y, x):
-        return True if population[y][x] == -1 else False
+        return population[y][x] == -1
 
     def spread_from(biter):
         for victim in get_susceptible_rabbits(*biter):
